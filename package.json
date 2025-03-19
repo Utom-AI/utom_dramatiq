@@ -1,0 +1,12 @@
+{
+  "name": "utom-dramatiq",
+  "version": "1.0.0",
+  "description": "This project is a Dramatiq-based application that processes videos, extracts audio, performs transcription using Faster Whisper, and extracts action points using OpenAI's LLM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
