@@ -1,0 +1,1724 @@
+{
+    "_id": "67c3cdeecec5eb3f4f2b2c56",
+    "feature_id": "67c3cdcdcec5eb3f4f2b2c53",
+    "created_at": 1740885453,
+    "workspace_id": "674ecd2f2e113eda93541afc",
+    "project_id": "placeholder_project_id",
+    "creator_id": "674ecc722e113eda935419ed",
+    "workspace_metadata": {
+        "_id": "674ecd2f2e113eda93541afe",
+        "workspace_id": "674ecd2f2e113eda93541afc",
+        "workspace_name": "Utom",
+        "workspace_owner_id": "674ecc722e113eda935419ed",
+        "created_at": 1733217583.1383708,
+        "description": "Productivity reimagined.... lets make magic happen!",
+        "visibility": "private",
+        "website": "https://www.utom.app",
+        "members": [
+            "674ecc722e113eda935419ed"
+        ],
+        "workspace_owner_details": {
+            "_id": "674ecc722e113eda935419ef",
+            "user_id": "674ecc722e113eda935419ed",
+            "username": "d3mz",
+            "email": "dr.u.e.ekong@gmail.com",
+            "roles": [
+                "Founder",
+                "CEO"
+            ],
+            "created_at": 1733217394.2310762,
+            "firebase_authentication_token": "a9T4FRDj1Zb3ifYTkYi5HqdsaAH3",
+            "profile": {
+                "first_name": "Udeme",
+                "last_name": "Ekong"
+            },
+            "permissions": {
+                "access_level": "admin",
+                "status": "active"
+            },
+            "workspace_ids": []
+        }
+    },
+    "project_metadata": {
+        "project_id": "placeholder_project_id",
+        "name": "Placeholder Project"
+    },
+    "creator_metadata": {
+        "_id": "674ecc722e113eda935419ef",
+        "user_id": "674ecc722e113eda935419ed",
+        "username": "d3mz",
+        "email": "dr.u.e.ekong@gmail.com",
+        "roles": [
+            "Founder",
+            "CEO"
+        ],
+        "created_at": 1733217394.2310762,
+        "firebase_authentication_token": "a9T4FRDj1Zb3ifYTkYi5HqdsaAH3",
+        "profile": {
+            "first_name": "Udeme",
+            "last_name": "Ekong"
+        },
+        "permissions": {
+            "access_level": "admin",
+            "status": "active"
+        },
+        "workspace_ids": []
+    },
+    "members": [
+        "674ecc722e113eda935419ed"
+    ],
+    "status": "planning",
+    "percentage_complete": 0,
+    "feature_details": {
+        "feature_name": "Utom Meet Productivity",
+        "feature_description": "Utom Meet Productivity is an integrated meeting management solution within the Utom ecosystem. It streamlines meeting scheduling, management, and post-meeting analysis through an intuitive calendar interface and an LLM-driven meeting creation flow. Users can attach contextual information, answer targeted questions, and generate meeting metadata seamlessly. Post-meeting, transcripts and action items are indexed, and productivity is tracked via join/leave timestamps. This results in improved accountability and enhanced productivity across startup teams.",
+        "user_flows": [
+            {
+                "flow_id": "flow_1",
+                "title": "Login and Access Homepage",
+                "description": "User logs into the Utom ecosystem and is immediately presented with the Utom Meet homepage, setting the stage for seamless navigation to meeting functionalities."
+            },
+            {
+                "flow_id": "flow_2",
+                "title": "View Calendar and Meetings",
+                "description": "Upon entry, the user views a calendar interface displaying upcoming and past meetings, enabling quick access and search for meeting details."
+            },
+            {
+                "flow_id": "flow_3",
+                "title": "Initiate Meeting Creation",
+                "description": "User selects the option to create a new meeting from the calendar/homepage, initiating the meeting setup journey with clear call-to-action."
+            },
+            {
+                "flow_id": "flow_4",
+                "title": "Start LLM Conversation",
+                "description": "Once a new meeting is chosen, the system launches an LLM-driven conversation that guides the user through the initial meeting setup by asking context-specific questions."
+            },
+            {
+                "flow_id": "flow_5",
+                "title": "Attach Contextual Information",
+                "description": "User is prompted to attach relevant context, such as a feature, document, task, or project, to enrich the meeting\u2019s purpose and ensure all background details are captured."
+            },
+            {
+                "flow_id": "flow_6",
+                "title": "Answer Guided Questions",
+                "description": "The LLM asks five targeted questions to uncover meeting objectives, ensuring that clear outcomes and agenda items are defined throughout the conversation."
+            },
+            {
+                "flow_id": "flow_7",
+                "title": "Specify Meeting Objectives",
+                "description": "User communicates the desired outcomes and agenda specifics, making it easier for participants to understand the purpose and expectations of the meeting."
+            },
+            {
+                "flow_id": "flow_8",
+                "title": "Select and Add Participants",
+                "description": "The conversation flows to capturing who should attend. The user selects participants, ensuring that everyone relevant is included in the meeting invitation process."
+            },
+            {
+                "flow_id": "flow_9",
+                "title": "Generate Meeting Metadata",
+                "description": "After collecting all necessary details, the system automatically generates complete meeting metadata, consolidating all contextual and scheduling data."
+            },
+            {
+                "flow_id": "flow_10",
+                "title": "Send Invite via ToDo Tasks",
+                "description": "The system sends meeting invitations as tasks within the Utom ToDo app. Invitees are prompted to review, acknowledge, and accept or reject the meeting invite."
+            },
+            {
+                "flow_id": "flow_11",
+                "title": "Return to Homepage",
+                "description": "Upon successful meeting creation, the user is redirected to the Utom Meet homepage, where they can view the list of meetings and initiate new meeting setups if required."
+            },
+            {
+                "flow_id": "flow_12",
+                "title": "Join Meeting Process",
+                "description": "At the scheduled time, users can join meetings directly from the Meet app. The system checks if the meeting start time is within 15 minutes before allowing access."
+            },
+            {
+                "flow_id": "flow_13",
+                "title": "Handle Early Join Attempts",
+                "description": "If a user attempts to join a meeting too early, the system displays a clear message indicating that the meeting has not yet started, blocking premature entry."
+            },
+            {
+                "flow_id": "flow_14",
+                "title": "Handle Overrun Meetings",
+                "description": "In cases where meetings overrun, users receive a notification that the meeting is running over time, with a cutoff after 30 minutes past the scheduled end time."
+            },
+            {
+                "flow_id": "flow_15",
+                "title": "Track Meeting Productivity",
+                "description": "At meeting conclusion, the system logs join and leave timestamps for all participants, converting meeting attendance into a task completion record to measure productivity."
+            }
+        ],
+        "execution_steps": [
+            {
+                "step_number": 1,
+                "title": "Design UI Wireframes",
+                "roles": [
+                    "UX Designer"
+                ],
+                "description": "Create detailed wireframes for the Utom Meet homepage, calendar view, and meeting creation conversation screens ensuring intuitive navigation.",
+                "dependencies": [],
+                "estimated_hours": 16,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 2,
+                "title": "Define API Contracts",
+                "roles": [
+                    "Backend Engineer",
+                    "API Architect"
+                ],
+                "description": "Outline and document API endpoints for meeting creation, transcript storage, participant management, and productivity tracking, ensuring clear integration points.",
+                "dependencies": [],
+                "estimated_hours": 12,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 3,
+                "title": "Implement User Authentication",
+                "roles": [
+                    "Frontend Developer",
+                    "Backend Developer"
+                ],
+                "description": "Develop and integrate user login functionality to ensure secure access to the Utom ecosystem and proper routing to the Meet app.",
+                "dependencies": [
+                    1
+                ],
+                "estimated_hours": 10,
+                "complexity": "low"
+            },
+            {
+                "step_number": 4,
+                "title": "Develop Homepage and Calendar View",
+                "roles": [
+                    "Frontend Developer"
+                ],
+                "description": "Build the homepage featuring the calendar view for upcoming and past meetings, including search and quick creation functionalities.",
+                "dependencies": [
+                    1,
+                    3
+                ],
+                "estimated_hours": 18,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 5,
+                "title": "Integrate LLM Conversation Module",
+                "roles": [
+                    "Backend Developer",
+                    "ML Engineer"
+                ],
+                "description": "Develop and integrate the LLM module to handle the interactive conversation for meeting creation with guided questions and context capture.",
+                "dependencies": [
+                    2
+                ],
+                "estimated_hours": 20,
+                "complexity": "high"
+            },
+            {
+                "step_number": 6,
+                "title": "Implement Context Attachment Function",
+                "roles": [
+                    "Frontend Developer",
+                    "Backend Developer"
+                ],
+                "description": "Enable users to attach relevant context (features, docs, tasks) during meeting creation, ensuring proper linkages are stored with meeting data.",
+                "dependencies": [
+                    5
+                ],
+                "estimated_hours": 10,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 7,
+                "title": "Develop Guided Q&A Flow",
+                "roles": [
+                    "Frontend Developer",
+                    "Backend Developer"
+                ],
+                "description": "Implement the guided conversational flow with five-turn interactive Q&As to extract meeting objectives and requirements, ensuring clarity in user inputs.",
+                "dependencies": [
+                    5
+                ],
+                "estimated_hours": 15,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 8,
+                "title": "Add Participant Selection Module",
+                "roles": [
+                    "Frontend Developer"
+                ],
+                "description": "Create a module for users to select and add participants, ensuring that the selection integrates smoothly with the meeting\u2019s metadata generation.",
+                "dependencies": [
+                    7
+                ],
+                "estimated_hours": 10,
+                "complexity": "low"
+            },
+            {
+                "step_number": 9,
+                "title": "Generate and Store Meeting Metadata",
+                "roles": [
+                    "Backend Developer",
+                    "Database Administrator"
+                ],
+                "description": "Build functionality to auto-generate meeting metadata from the conversation and context attachments; store it using MongoDB and AWS S3.",
+                "dependencies": [
+                    7,
+                    8
+                ],
+                "estimated_hours": 12,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 10,
+                "title": "Implement ToDo Task Invitation",
+                "roles": [
+                    "Backend Developer",
+                    "Frontend Developer"
+                ],
+                "description": "Integrate meeting invites into the Utom ToDo app by generating tasks that require invitee acknowledgment and acceptance/rejection.",
+                "dependencies": [
+                    9
+                ],
+                "estimated_hours": 14,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 11,
+                "title": "Develop Meeting Join Logic",
+                "roles": [
+                    "Frontend Developer",
+                    "Backend Developer"
+                ],
+                "description": "Implement functionality to allow users to join meetings, ensuring join button is active only within 15 minutes prior to meeting start.",
+                "dependencies": [
+                    4,
+                    9
+                ],
+                "estimated_hours": 10,
+                "complexity": "medium"
+            },
+            {
+                "step_number": 12,
+                "title": "Handle Early and Overrun Join Scenarios",
+                "roles": [
+                    "Frontend Developer"
+                ],
+                "description": "Create error messaging for early join attempts and overrun meetings, including notifications and cutoff logic after 30 minutes past meeting end.",
+                "dependencies": [
+                    11
+                ],
+                "estimated_hours": 8,
+                "complexity": "low"
+            },
+            {
+                "step_number": 13,
+                "title": "Integrate Video Conferencing API",
+                "roles": [
+                    "Backend Developer",
+                    "Integration Engineer"
+                ],
+                "description": "Integrate with Daily and Whereby APIs to power the video meeting experience, ensuring seamless launch from the Utom Meet interface.",
+                "dependencies": [
+                    9
+                ],
+                "estimated_hours": 15,
+                "complexity": "high"
+            },
+            {
+                "step_number": 14,
+                "title": "Implement Transcript and Action Item Indexing",
+                "roles": [
+                    "Backend Developer",
+                    "Data Engineer"
+                ],
+                "description": "Develop post-meeting processing to index transcripts and extract action items, linking them to the meeting record for future review.",
+                "dependencies": [
+                    9
+                ],
+                "estimated_hours": 12,
+                "complexity": "high"
+            },
+            {
+                "step_number": 15,
+                "title": "Implement Productivity Tracking",
+                "roles": [
+                    "Backend Developer",
+                    "QA Engineer"
+                ],
+                "description": "Build functionality to capture join and leave timestamps for each meeting participant, converting their attendance into task completion records for productivity metrics.",
+                "dependencies": [
+                    11
+                ],
+                "estimated_hours": 10,
+                "complexity": "medium"
+            }
+        ],
+        "user_flow_reviewed": false,
+        "conversation_history": [
+            {
+                "role": "assistant",
+                "content": "Great! Let's get started. Tell me what you want to build."
+            },
+            {
+                "role": "user",
+                "content": "I want to build an agent app called Utom Meet that would allow users to have meetings on Utom, similar to what they have available on Google Meet. Howevera major improvement here is that we want to index the meeting transcripts in real time, as well as capture action points and create tasks on the fly as the meetingis ongoing."
+            },
+            {
+                "role": "assistant",
+                "content": "That's a very interesting concept! It sounds like Utom Meet aims to add significant value by making meetings more actionable through real-time insights. To kick things off, can you tell me a bit more about the main user pain points you're addressing with these features? How do you envision the real-time transcript indexing and live task creation improving the meeting experience?"
+            },
+            {
+                "role": "user",
+                "content": "The major pain point here is that so many meetings happen each day across an organization and its difficult to keep track of themand ensure that action items are followed up on. The live task creation and transcript indexing would help all involved in the meeting(as well as those who come in later) to have full context on what is going on. I would also like to have a dashboard view that shows all meetingsand their statuses, and allows for quick searches. Maybe like a calendar type view that shows all meetings and their statuses. The meeting creationexperience should be via an llm conversation that will try to get context around the need and agenda for the meeting, to ensure that team membersare prepared and the meeting is productive. Also a feature that ticks off agenda items as they are discussed would be great."
+            },
+            {
+                "role": "assistant",
+                "content": "Thanks for sharing those details\u2014this is shaping up to be both comprehensive and impactful! Now, thinking about the users: Who are your primary target users for Utom Meet? Which roles or job functions within an organization will benefit most from these features, and in what scenarios do you envision them using this tool?"
+            },
+            {
+                "role": "user",
+                "content": "To be honest it would be the entire organizaiton that would be using this feature, so we need to make sure that the UX is simple and intuitive for them. We will also need to build onboarding for them to get them up to speed with the product. Also its important to note that our initial clients would be startup companies, so we need to make sure that the UX is simple and intuitive for them."
+            },
+            {
+                "role": "assistant",
+                "content": "Great insights\u2014simplicity and intuitive design are key, especially when you're targeting startups. Now, let\u2019s talk about the business value and alignment. How do you see Utom Meet contributing to the overall success of the organization? For example, what outcomes are we expecting in terms of productivity improvements, follow-up on action items, or any other strategic objectives?"
+            },
+            {
+                "role": "user",
+                "content": "What we expect from this meet app within the Utom ecosystem would be that there is a significant uplift in productivity and accountabilityacross the organization. We expect that the app will be used by all members of the organization, and so we need to make sure that the UX is simple andintuitive for them. We will also need to build onboarding for them to get them up to speed with the product. "
+            },
+            {
+                "role": "assistant",
+                "content": "Great, thanks for clarifying the business value. Now, let's dive into technical considerations. What technical challenges or constraints do you foresee when implementing features like real-time transcript indexing, live task creation, and the LLM-driven meeting creation experience? And do we have any existing systems or tech stacks that we need to integrate with?"
+            },
+            {
+                "role": "user",
+                "content": "What we expect from this meet app within the Utom ecosystem would be that there is a significant uplift in productivity and accountabilityacross the organization. We expect that the app will be used by all members of the organization, and so we need to make sure that the UX is simple andintuitive for them. We will also need to build onboarding for them to get them up to speed with the product. I also want to use https://www.daily.co/ or https://whereby.com/ to power the meeting experience, and so we need to make sure that the web app is able tointegrate with these services."
+            },
+            {
+                "role": "assistant",
+                "content": "Understood\u2014integrating with Daily and Whereby while ensuring a smooth user experience and onboarding is essential. Now, let's move on to data requirements. How do you imagine capturing, storing, and indexing the meeting transcripts and action points? Are there specific data formats, storage needs, or security/privacy concerns we should consider?"
+            },
+            {
+                "role": "user",
+                "content": "Don't have any in mind now, happy for you to recommend, for now we can use the standard mongoDB and aws s3 stack for saving and managing meetings."
+            },
+            {
+                "role": "assistant",
+                "content": "Thanks for clarifying the data requirements and tech stack. Now, let's talk about integration points. Aside from the video conferencing integrations with Daily and Whereby, are there any other systems or external tools you'd like Utom Meet to integrate with? For example, do we need to sync with calendar applications, communication platforms like Slack, or any other systems to ensure a seamless experience?"
+            },
+            {
+                "role": "user",
+                "content": "For now no, but will be a good idea to factor this into the architecture."
+            },
+            {
+                "role": "assistant",
+                "content": "Great, thanks for that. Now, let's talk about success metrics. What key performance indicators or metrics do you envision using to measure the success of Utom Meet? For instance, are there specific targets around meeting productivity, user engagement, task completion rates, or something else that would signal success?"
+            },
+            {
+                "role": "user",
+                "content": "One key success metric would be the number of tasks created from meetings, and the number of tasks completed."
+            },
+            {
+                "role": "assistant",
+                "content": "Thanks for sharing the success metrics. Now, let's consider potential risks and constraints. What challenges or limitations do you foresee with implementing these features\u2014for instance, issues with real-time processing, transcription accuracy, or dependencies on external integrations like Daily and Whereby? Feel free to share specific concerns or say \"skip\" if you'd prefer to move on."
+            },
+            {
+                "role": "user",
+                "content": "skip"
+            },
+            {
+                "role": "assistant",
+                "content": "Great, now that we've covered the high-level aspects, here's a brief summary of what we've discussed so far:\u2022 Utom Meet is a meeting app within the Utom ecosystem that enhances productivity by providing real-time transcript indexing and live task creation during meetings.  \u2022 The design needs to be simple and intuitive, supporting an entire organization\u2014especially startups\u2014with a smooth onboarding process.  \u2022 There's a dashboard view planned that offers a calendar-like interface and status updates on meetings, including agenda tracking.  \u2022 The meeting initiation experience will involve an LLM-driven conversation to set context and agenda, ensuring team readiness and productive meetings.  \u2022 For video conferencing, we'll integrate with services like Daily and Whereby, while data will be stored using MongoDB and AWS S3.  \u2022 Success will be measured by the number of tasks created and completed stemming from meetings.Let's transition into a deeper dive into the user flows and interactions. To start, during an active meeting, how do you envision the user's interaction with the real-time transcript indexing and task creation features? Can you walk me through a typical user scenario during the meeting?"
+            },
+            {
+                "role": "user",
+                "content": "So the user will open the meet app after logging onto Utom and they will see their calendar view- they can see upcoming meetings and be able to click on them and see their agenda- they can also create a new meeting from this view- they can also see their past meetings and have a search function to find specific meetings- they can also see their meeting notes and action items from past meetings, as well as transcripts and created tasks from the meeting"
+            },
+            {
+                "role": "assistant",
+                "content": "Great, thanks for outlining the calendar and meeting flows. Now, let's dive deeper into the in-meeting experience. During an active meeting, how do you envision the user interacting with the real-time transcript and live task creation features? For example, what does the interface look like, and how does the user mark agenda items as complete or trigger task creation?"
+            },
+            {
+                "role": "user",
+                "content": "Honestly I think for v1, lets not do it live, but do it after the fact, and they can go to the past meetings view and see the transcriptsand action items. We can also have a view that shows all meetings and their statuses, and allows for quick searches. Maybe like a calendar type viewthat shows all meetings and their statuses. The meeting creation experience should be via an llm conversation that will try to get context around the needand agenda for the meeting, to ensure that team members are prepared and the meeting is productive. Also a feature that ticks off agenda items as theyare discussed would be great."
+            },
+            {
+                "role": "assistant",
+                "content": "Thanks for clarifying the v1 approach, focusing on post-meeting processing for transcripts and action items, along with a rich view of meeting statuses and a calendar overview. Now, diving into the meeting creation aspect via an LLM conversation: can you walk me through the envisioned flow for setting up a meeting? For example, what steps or questions should the conversation cover to gather context around the need and agenda effectively?"
+            },
+            {
+                "role": "user",
+                "content": "For the meeting creation, what I have in mind is it would allow you to provide context like attaching an utom feature/doc/task/project etc,in then asks about the meeting and what you want to achieve from it. It should be 5 turn by turn questions to get a feel for whatthe meeting is about, and then it will ask about who is to join the meeting. Then all relevant meeting metadata should be generated, and the finalstep would then be confirming who is to be in attendance."
+            },
+            {
+                "role": "assistant",
+                "content": "Got it, that makes a lot of sense. To summarize your vision for the meeting creation flow:\u2022 The conversation starts by allowing the user to attach relevant context\u2014like a feature, document, task, or project.\u2022 Then, the LLM initiates a conversation with about 5 turn-by-turn questions, aiming to uncover the meeting\u2019s purpose, what the user hopes to achieve, and other contextual details.\u2022 After that, the system asks for participant details\u2014specifically, who should join the meeting.\u2022 Finally, the system generates all the relevant meeting metadata and confirms the attendees before finalizing the meeting setup.Does that capture everything correctly? And are there any follow-up questions you\u2019d like the meeting creation conversation to include, or any edge cases we should consider for this process?"
+            },
+            {
+                "role": "user",
+                "content": "I think it will be important to note that we then need to send invites which will happen in the form of tasks in the ToDo app for Utom userswhere they see meeting details and can accept or reject, but it is important that they acknowledge the invite."
+            },
+            {
+                "role": "assistant",
+                "content": "Excellent point\u2014integrating the invite process via task creation in the Utom ToDo app adds another layer to ensuring accountability and prompt action on the meeting details. Let me summarize the updated flow for meeting creation and invitation:\u2022 The conversation starts with the user optionally attaching context like a feature, document, task, or project.  \u2022 The LLM then guides the user through about five turn-by-turn questions to clarify the meeting's purpose and desired outcomes.  \u2022 Next, the system asks for details on who should attend the meeting.  \u2022 Once all information is gathered, the metadata for the meeting is generated.  \u2022 The final step includes sending meeting invites, which are created as tasks in the Utom ToDo app. These invites will contain the meeting details, prompting users to acknowledge by accepting or rejecting the invite.Does this updated flow capture everything you had in mind? Would you like to delve into any specifics regarding how users interact with these invitation tasks, or should we move on to considering any edge cases and error scenarios in this process?"
+            },
+            {
+                "role": "user",
+                "content": "No, the flow is perfectly captured for now"
+            },
+            {
+                "role": "assistant",
+                "content": "Fantastic, I'm glad the flow is perfectly captured. Let's advance into the next phase and dive a bit deeper into the user flow.One area I'd like to explore is the screen-to-screen transitions. For instance, after a user completes the meeting creation conversation and receives the meeting invitation tasks in their ToDo app, how do you envision the transition between these different screens? Could you describe how you think a user should move seamlessly from finalizing meeting details within Utom Meet to managing their meeting tasks in the ToDo app?"
+            },
+            {
+                "role": "user",
+                "content": "TBH lets make it straightforward, after I create my meeting, it takes me back to the home page for Utom Meet, and I can see my meetings and create another oneif need be. Also for those getting the invite, they can just review/acknowedge and the task is done they should also get a reminder to the fact.Then in terms of joining a meeting, I should be able to simply open my meet app and join from there. I should also be unable to join any meeting that is not starting within 15 minutes.Its also important to factor for meetings that would over run "
+            },
+            {
+                "role": "assistant",
+                "content": "Thanks for outlining that additional flow\u2014it\u2019s really helpful. Just to clarify: after meeting creation, the user is redirected back to the Utom Meet homepage where they can view their meetings and create new ones as needed. For invitees, they receive a task invite via the ToDo app, and upon review and acknowledgement, the task is marked as complete\u2014with a timely reminder if needed. And for joining meetings, users are able to join from within the Meet app, but only if the meeting is scheduled to start within 15 minutes, with special considerations for meetings that run over.With that in mind, could you describe how you\u2019d like to handle the scenario where a user attempts to join a meeting too early or when a meeting is overrun? For example, what kind of messaging or interface cues would you like in those cases?"
+            },
+            {
+                "role": "user",
+                "content": "For a meeting too early, they should just get a message saying the meeting hasnt started yet. For meetings that have already started and is overruning,a message should be opped up to that effect, and they can then carry on. Up to a limit of 30 minutes over at which point the meeting should be cut off.One major part of Utom is being able to track productivity of team members, so to this effect, we will want to capture the meeting as a task that was done by each team members and capture the time spent in the meeting as the duration of the task."
+            },
+            {
+                "role": "assistant",
+                "content": "Great, thanks for those details. To summarize the joining and meeting overrun cases:\u2022 If a user attempts to join too early, they'll get a message indicating that the meeting hasn't started yet.  \u2022 If they tiptoe into a meeting that's already underway and overrun, a message pops up informing them\u2014with the option to continue joining until 30 minutes past the scheduled end, after which the meeting cuts off.  \u2022 Additionally, once a meeting concludes, it\u2019s tracked as a completed task for each team member, recording the duration of their participation to assess productivity.Quick follow-up question on the productivity tracking: How would you like the system to capture the actual meeting duration for each team member? For instance, should this be automatically generated using join and leave timestamps from the app, or would you like to include any manual adjustments or other factors in the time calculation?"
+            },
+            {
+                "role": "user",
+                "content": "I think join and leave timestamps would suffice"
+            },
+            {
+                "role": "assistant",
+                "content": "Great, join and leave timestamps will keep things simple and efficient. Now, let's discuss performance expectations as we handle these interactions. Given that users will be transitioning between screens to join meetings, view transcripts, and manage tasks, do you have any specific performance targets or latency expectations in mind? For instance, how quickly should screens load or meeting data be available, and are there any load considerations we should account for?"
+            },
+            {
+                "role": "user",
+                "content": "At the moment no, lets just get the first version out before we start trying to optimize"
+            },
+            {
+                "role": "assistant",
+                "content": "Alright, no specific performance targets for now\u2014it's important to get the first version out and iterate later. As we've now covered the main flows, transitions, and meeting behavior, I'd like to ask:Are there any specific edge cases or error scenarios (for example, handling network interruptions, server issues, or other unexpected states) that you'd like us to consider for a graceful user experience, or any user preferences and customization options we haven't touched on yet?"
+            },
+            {
+                "role": "user",
+                "content": "can't think of any right now"
+            },
+            {
+                "role": "assistant",
+                "content": "Understood, no additional edge cases or customizations come to mind at the moment.To summarize our conversation so far:1. We\u2019re building Utom Meet, a meeting app in the Utom ecosystem that enhances productivity and accountability by capturing meeting transcripts and action items post-meeting, with an integrated calendar view for meetings.2. The UX is designed to be simple and intuitive\u2014a crucial factor for our target startups and organization-wide adoption\u2014with a smooth onboarding process.3. The meeting creation flow involves an LLM-driven conversation with roughly five turn-by-turn questions. Users can attach context (like features, docs, tasks, or projects) and then specify meeting details and attendees. Finally, meeting invites are sent as tasks in the Utom ToDo app, prompting invitees to acknowledge via acceptance or rejection.4. After creating a meeting, users are directed back to the Utom Meet homepage, where they can manage and search their meetings. Invitees get reminders for pending tasks.5. For joining meetings, users can only join if the meeting is scheduled to start within 15 minutes. If a user tries to join too early, they receive a message that the meeting hasn\u2019t started. For overrun meetings, a notification is displayed\u2014for up to 30 minutes over\u2014after which the meeting is cut off.6. Productivity tracking is built in by capturing join and leave timestamps for each team member as they participate, translating meeting attendance into task completions for productivity metrics.7. While no specific performance expectations or additional edge cases were identified at this stage, there's room to iterate on these aspects in future releases.Before we close out, is there anything else you'd like to add or explore further at this point?"
+            },
+            {
+                "role": "user",
+                "content": "No, I think this is a good version 1"
+            },
+            {
+                "role": "assistant",
+                "content": "Fantastic! We now have a clear vision for Utom Meet V1:\u2022 It's a meeting app within the Utom ecosystem with a simple and intuitive UX tailored for startups, offering both a calendar view for managing meetings and a smooth onboarding experience.  \u2022 Meetings are created via an LLM-driven conversation that gathers context and meeting goals in about five turns, allows users to attach related context (feature, doc, task, or project), and finalizes by selecting invitees.  \u2022 Once meeting details are finalized, invites are sent as tasks within the Utom ToDo app, prompting invitees to acknowledge by accepting or rejecting, with reminders for pending tasks.  \u2022 After creation, the user is directed back to the Utom Meet homepage where they can view upcoming, past, and searchable meetings.  \u2022 For joining meetings, users can only join if the meeting is scheduled to start within 15 minutes. Attempting to join too early will display a \u201cmeeting hasn\u2019t started\u201d message, and if a meeting is overrun, a message informs the user\u2014with a cutoff 30 minutes past the scheduled end.  \u2022 To track productivity, the system captures join and leave timestamps for each participant, converting meeting participation into completed tasks that reflect time spent.This comprehensive understanding sets us up for a strong initial release. If any new questions or edge cases arise during implementation, we can always revisit and iterate. Great work, and let's move forward with this version 1!"
+            }
+        ],
+        "design_brief": {
+            "design_brief": {
+                "overview": "Utom Meet is an integrated meeting management solution designed to streamline scheduling, meeting creation via LLM interactions, and post-meeting productivity analysis. The design will focus on simplicity, intuitive navigation, and a consistent experience across desktop and mobile devices. Key flows include meeting creation via a conversational UI, a robust calendar view, task invitations integration, and post-meeting transcript & action item displays.",
+                "objectives": "Create a clean, intuitive UI that supports a guided meeting creation experience, clear calendar views for upcoming, current, and past meetings, and seamless transitions between meeting details and related task management with integrated API endpoints. Ensure that every component supports rapid adoption with minimal training, catering to startup environments and organization-wide usage.",
+                "constraints": "Design must support integration with external services such as Daily and Whereby, and be built within existing technical stacks (MongoDB, AWS S3). The UI should accommodate error handling for network issues and ensure that components are responsive, with simple, straightforward interactions that minimize cognitive load.",
+                "design_system": {
+                    "color_palette": {
+                        "primary": {
+                            "main": "#0052CC",
+                            "light": "#4C9AFF",
+                            "dark": "#172B4D",
+                            "contrast_text": "#FFFFFF"
+                        },
+                        "secondary": {
+                            "main": "#FF5630",
+                            "light": "#FFAB91",
+                            "dark": "#BF2600",
+                            "contrast_text": "#FFFFFF"
+                        },
+                        "background": {
+                            "default": "#F4F5F7",
+                            "paper": "#FFFFFF"
+                        }
+                    },
+                    "component_themes": {
+                        "buttons": {
+                            "primary": {
+                                "bg": "#0052CC",
+                                "hover": "#4C9AFF",
+                                "active": "#172B4D"
+                            },
+                            "secondary": {
+                                "bg": "#FF5630",
+                                "hover": "#FFAB91",
+                                "active": "#BF2600"
+                            }
+                        }
+                    },
+                    "spacing_scale": {
+                        "compact": "0.5rem",
+                        "normal": "1rem",
+                        "relaxed": "1.5rem"
+                    }
+                }
+            },
+            "screens": {
+                "homepage": {
+                    "screen_id": "homepage",
+                    "execution_dependencies": [
+                        1,
+                        3,
+                        4
+                    ],
+                    "implementation_phase": "v1",
+                    "component_catalog": {
+                        "navigation": {
+                            "top_bar": {
+                                "type": "NavigationBar",
+                                "description": "A top fixed navigation bar that displays the app logo, user avatar, and notifications.",
+                                "required_elements": [
+                                    "logo",
+                                    "user_avatar",
+                                    "notification_icon"
+                                ],
+                                "variants": [
+                                    "default",
+                                    "scrolled"
+                                ],
+                                "props": {
+                                    "backgroundColor": "string",
+                                    "logoUrl": "string",
+                                    "userAvatarUrl": "string"
+                                },
+                                "states": [
+                                    "default",
+                                    "active",
+                                    "hover"
+                                ],
+                                "interactions": [
+                                    "clickable logo for home",
+                                    "clickable avatar to open profile"
+                                ]
+                            }
+                        },
+                        "calendar": {
+                            "meeting_calendar": {
+                                "type": "CalendarView",
+                                "description": "A calendar layout displaying upcoming, past, and current meetings with statuses.",
+                                "required_elements": [
+                                    "date_grid",
+                                    "meeting_cards",
+                                    "search_bar",
+                                    "filter_buttons"
+                                ],
+                                "variants": [
+                                    "monthly",
+                                    "weekly"
+                                ],
+                                "props": {
+                                    "currentDate": "Date",
+                                    "meetingsData": "Array"
+                                },
+                                "states": [
+                                    "loading",
+                                    "loaded",
+                                    "empty"
+                                ],
+                                "interactions": [
+                                    "select date",
+                                    "click meeting card",
+                                    "search input change"
+                                ]
+                            }
+                        },
+                        "buttons": {
+                            "create_meeting_button": {
+                                "type": "Button",
+                                "description": "Primary call-to-action to create a new meeting.",
+                                "required_elements": [
+                                    "icon",
+                                    "text label"
+                                ],
+                                "variants": [
+                                    "default",
+                                    "disabled"
+                                ],
+                                "props": {
+                                    "onClick": "function",
+                                    "label": "string"
+                                },
+                                "states": [
+                                    "default",
+                                    "hover",
+                                    "active",
+                                    "disabled"
+                                ],
+                                "interactions": [
+                                    "click to start meeting creation flow"
+                                ]
+                            }
+                        },
+                        "dashboard": {
+                            "meeting_status_card": {
+                                "type": "Card",
+                                "description": "Displays meeting summary including title, status, scheduled time, and quick action icons.",
+                                "required_elements": [
+                                    "title",
+                                    "status indicator",
+                                    "time",
+                                    "action icons"
+                                ],
+                                "variants": [
+                                    "upcoming",
+                                    "past",
+                                    "ongoing"
+                                ],
+                                "props": {
+                                    "meetingId": "string",
+                                    "title": "string",
+                                    "status": "string",
+                                    "scheduledTime": "string"
+                                },
+                                "states": [
+                                    "default",
+                                    "hover"
+                                ],
+                                "interactions": [
+                                    "clickable to open meeting details"
+                                ]
+                            }
+                        }
+                    },
+                    "component_hierarchy": {
+                        "layout": {
+                            "type": "Grid",
+                            "children": [
+                                {
+                                    "type": "NavigationBar",
+                                    "execution_step_dependency": 1,
+                                    "children": []
+                                },
+                                {
+                                    "type": "CalendarView",
+                                    "execution_step_dependency": 4,
+                                    "children": [
+                                        "meeting_cards",
+                                        "search_bar"
+                                    ]
+                                },
+                                {
+                                    "type": "Button",
+                                    "execution_step_dependency": 3,
+                                    "children": [
+                                        "create_meeting_button"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required_endpoints": [
+                        {
+                            "name": "Get User Profile",
+                            "path": "/api/users/profile",
+                            "method": "GET",
+                            "description": "Fetches the user profile details including preferences and avatar to personalize the homepage.",
+                            "request": {
+                                "query_params": {
+                                    "include_preferences": {
+                                        "type": "boolean",
+                                        "description": "Determines if user preferences should be included.",
+                                        "required": false,
+                                        "default": false
+                                    }
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": {
+                                        "user_id": "string (UUID)",
+                                        "email": "string (email)",
+                                        "full_name": "string",
+                                        "avatar_url": "string",
+                                        "preferences": "object (if requested)"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "User not authenticated",
+                                        "status": 401,
+                                        "response": {
+                                            "error": "string",
+                                            "message": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Used in the top navigation bar to display user details and in personalization of the homepage."
+                        },
+                        {
+                            "name": "List Meetings",
+                            "path": "/api/meetings",
+                            "method": "GET",
+                            "description": "Retrieves a list of meetings for the logged-in user, including upcoming, past, and ongoing meetings.",
+                            "request": {
+                                "query_params": {
+                                    "date": {
+                                        "type": "string",
+                                        "description": "Filter meetings by date.",
+                                        "required": false
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "description": "Filter by meeting status like upcoming, past, ongoing.",
+                                        "required": false
+                                    }
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": [
+                                        {
+                                            "meeting_id": "string",
+                                            "title": "string",
+                                            "status": "string",
+                                            "scheduled_time": "timestamp",
+                                            "metadata": "object"
+                                        }
+                                    ]
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Server error",
+                                        "status": 500,
+                                        "response": {
+                                            "error": "string",
+                                            "message": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Populated into the CalendarView and MeetingStatusCards on the homepage."
+                        }
+                    ],
+                    "screen_states": {
+                        "view_modes": [
+                            {
+                                "mode": "default",
+                                "layout": "grid",
+                                "active_components": [
+                                    "NavigationBar",
+                                    "CalendarView",
+                                    "CreateMeetingButton"
+                                ]
+                            },
+                            {
+                                "mode": "empty",
+                                "layout": "centered",
+                                "active_components": [
+                                    "EmptyStateMessage"
+                                ]
+                            }
+                        ],
+                        "conditional_elements": [
+                            {
+                                "element": "EmptyStateMessage",
+                                "display_condition": "if no meetings are returned from List Meetings API",
+                                "execution_step_dependency": 4
+                            }
+                        ]
+                    },
+                    "data_management": {
+                        "state_structure": {
+                            "local_state": {
+                                "meetings": "Array",
+                                "userProfile": "Object"
+                            },
+                            "global_state": {
+                                "required_slices": [
+                                    "auth",
+                                    "user",
+                                    "meeting"
+                                ],
+                                "mutations_needed": [
+                                    "updateMeetingsList",
+                                    "setUserProfile"
+                                ]
+                            }
+                        },
+                        "caching_strategy": {
+                            "cache_keys": [
+                                "meetingsCache",
+                                "userProfileCache"
+                            ],
+                            "invalidation_triggers": [
+                                "new meeting creation",
+                                "user profile update"
+                            ],
+                            "execution_step_dependency": 4
+                        }
+                    },
+                    "screen_data": {
+                        "dummy_data": {
+                            "static_content": {
+                                "images": [
+                                    {
+                                        "purpose": "logo",
+                                        "url": "https://images.pexels.com/photo-1522202176988-66273c2fd55f",
+                                        "aspect_ratio": "16:9",
+                                        "alt_text": "Utom Meet Logo"
+                                    }
+                                ],
+                                "text_content": {
+                                    "headlines": [
+                                        "Welcome to Utom Meet"
+                                    ],
+                                    "descriptions": [
+                                        "Manage your meetings effectively"
+                                    ]
+                                }
+                            },
+                            "dynamic_content": {
+                                "list_items": [
+                                    {
+                                        "template": {
+                                            "title": "Meeting Title",
+                                            "description": "Meeting description and agenda",
+                                            "image_url": "https://images.pexels.com/photo-1522202176988-66273c2fd55f",
+                                            "metadata": {
+                                                "created_at": "timestamp",
+                                                "status": [
+                                                    "upcoming",
+                                                    "past",
+                                                    "ongoing"
+                                                ]
+                                            }
+                                        },
+                                        "count": 5
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "meeting_creation": {
+                    "screen_id": "meeting_creation",
+                    "execution_dependencies": [
+                        5,
+                        6,
+                        7,
+                        8
+                    ],
+                    "implementation_phase": "v1",
+                    "component_catalog": {
+                        "conversation": {
+                            "llm_chat_box": {
+                                "type": "ChatInterface",
+                                "description": "Interactive chat box to conduct the LLM-driven meeting creation conversation with turn-by-turn prompts.",
+                                "required_elements": [
+                                    "chat window",
+                                    "message list",
+                                    "input field",
+                                    "send button"
+                                ],
+                                "variants": [
+                                    "initial",
+                                    "in-progress",
+                                    "completed"
+                                ],
+                                "props": {
+                                    "conversationId": "string",
+                                    "messages": "Array"
+                                },
+                                "states": [
+                                    "empty",
+                                    "active",
+                                    "error"
+                                ],
+                                "interactions": [
+                                    "sending text",
+                                    "receiving LLM prompt",
+                                    "scrolling through messages"
+                                ]
+                            }
+                        },
+                        "context_attachment": {
+                            "attachment_input": {
+                                "type": "FileUploadInput",
+                                "description": "Component to allow the user to attach context, e.g., related feature, doc, task, or project.",
+                                "required_elements": [
+                                    "upload button",
+                                    "preview thumbnail"
+                                ],
+                                "variants": [
+                                    "default",
+                                    "error"
+                                ],
+                                "props": {
+                                    "acceptedFileTypes": "Array",
+                                    "maxFileSize": "number"
+                                },
+                                "states": [
+                                    "ready",
+                                    "uploading",
+                                    "error"
+                                ],
+                                "interactions": [
+                                    "click to upload",
+                                    "drag and drop"
+                                ]
+                            }
+                        },
+                        "participant_selection": {
+                            "participant_selector": {
+                                "type": "MultiSelectDropdown",
+                                "description": "Dropdown component for selecting and adding participants for the meeting invitation.",
+                                "required_elements": [
+                                    "searchable list",
+                                    "checkbox selection"
+                                ],
+                                "variants": [
+                                    "default",
+                                    "disabled"
+                                ],
+                                "props": {
+                                    "participantsList": "Array",
+                                    "selectedParticipants": "Array"
+                                },
+                                "states": [
+                                    "open",
+                                    "closed"
+                                ],
+                                "interactions": [
+                                    "click to open",
+                                    "select participant"
+                                ]
+                            }
+                        },
+                        "confirmation": {
+                            "confirmation_modal": {
+                                "type": "Modal",
+                                "description": "Modal to confirm meeting details and final list of invitees with an option to send invites as tasks.",
+                                "required_elements": [
+                                    "summary content",
+                                    "confirm button",
+                                    "cancel button"
+                                ],
+                                "variants": [
+                                    "info",
+                                    "warning"
+                                ],
+                                "props": {
+                                    "meetingSummary": "Object",
+                                    "isVisible": "boolean"
+                                },
+                                "states": [
+                                    "visible",
+                                    "hidden"
+                                ],
+                                "interactions": [
+                                    "click confirm",
+                                    "click cancel"
+                                ]
+                            }
+                        }
+                    },
+                    "component_hierarchy": {
+                        "layout": {
+                            "type": "Flex",
+                            "children": [
+                                {
+                                    "type": "ChatInterface",
+                                    "execution_step_dependency": 6,
+                                    "children": [
+                                        "message list",
+                                        "input field",
+                                        "send button"
+                                    ]
+                                },
+                                {
+                                    "type": "FileUploadInput",
+                                    "execution_step_dependency": 5,
+                                    "children": []
+                                },
+                                {
+                                    "type": "MultiSelectDropdown",
+                                    "execution_step_dependency": 8,
+                                    "children": []
+                                },
+                                {
+                                    "type": "Modal",
+                                    "execution_step_dependency": 7,
+                                    "children": [
+                                        "summary content",
+                                        "confirm button",
+                                        "cancel button"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required_endpoints": [
+                        {
+                            "name": "Initiate Meeting Creation",
+                            "path": "/api/meetings/initiate",
+                            "method": "POST",
+                            "description": "Starts a new meeting creation process and initializes conversation context for LLM-driven interactions.",
+                            "request": {
+                                "body": {
+                                    "contextAttachment": "string (optional file URL or identifier)",
+                                    "initialPrompt": "string"
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 201,
+                                    "data": {
+                                        "conversationId": "string",
+                                        "meetingDraftId": "string"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Invalid attachment format",
+                                        "status": 400,
+                                        "response": {
+                                            "error": "InvalidFileType",
+                                            "message": "Attachment file type is not supported."
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Called at the start of the meeting creation flow to establish session context."
+                        },
+                        {
+                            "name": "Submit Meeting Details",
+                            "path": "/api/meetings/submit",
+                            "method": "POST",
+                            "description": "Submits the finalized meeting details, including conversation transcript, selected participants, and attachments. Triggers the creation of invitation tasks in the ToDo app.",
+                            "request": {
+                                "body": {
+                                    "meetingDraftId": "string",
+                                    "transcript": "Array (conversation messages)",
+                                    "participants": "Array of user IDs",
+                                    "meetingObjectives": "string"
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": {
+                                        "meetingId": "string",
+                                        "status": "scheduled"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Missing required fields",
+                                        "status": 422,
+                                        "response": {
+                                            "error": "UnprocessableEntity",
+                                            "message": "One or more fields are missing or invalid."
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Final submission step after LLM conversation ends and invitees have been confirmed."
+                        }
+                    ],
+                    "screen_states": {
+                        "view_modes": [
+                            {
+                                "mode": "conversation_active",
+                                "layout": "column",
+                                "active_components": [
+                                    "ChatInterface",
+                                    "FileUploadInput",
+                                    "MultiSelectDropdown"
+                                ]
+                            },
+                            {
+                                "mode": "confirmation",
+                                "layout": "modal",
+                                "active_components": [
+                                    "Modal"
+                                ]
+                            }
+                        ],
+                        "conditional_elements": [
+                            {
+                                "element": "Modal",
+                                "display_condition": "when conversation is complete and meeting details are ready for confirmation",
+                                "execution_step_dependency": 7
+                            }
+                        ]
+                    },
+                    "data_management": {
+                        "state_structure": {
+                            "local_state": {
+                                "conversationMessages": "Array",
+                                "attachedContext": "Object",
+                                "selectedParticipants": "Array"
+                            },
+                            "global_state": {
+                                "required_slices": [
+                                    "meetingCreation"
+                                ],
+                                "mutations_needed": [
+                                    "updateConversation",
+                                    "setParticipants",
+                                    "finalizeMeeting"
+                                ]
+                            }
+                        },
+                        "caching_strategy": {
+                            "cache_keys": [
+                                "meetingDraftCache"
+                            ],
+                            "invalidation_triggers": [
+                                "meeting submission success"
+                            ],
+                            "execution_step_dependency": 7
+                        }
+                    },
+                    "screen_data": {
+                        "dummy_data": {
+                            "static_content": {
+                                "images": [
+                                    {
+                                        "purpose": "LLM avatar",
+                                        "url": "https://images.pexels.com/photo-1511367461989-f85a21fda167",
+                                        "aspect_ratio": "1:1",
+                                        "alt_text": "Chatbot Avatar"
+                                    }
+                                ],
+                                "text_content": {
+                                    "headlines": [
+                                        "Let\u2019s set up your meeting"
+                                    ],
+                                    "descriptions": [
+                                        "Answer a few questions to get started"
+                                    ]
+                                }
+                            },
+                            "dynamic_content": {
+                                "list_items": []
+                            }
+                        }
+                    }
+                },
+                "meeting_join": {
+                    "screen_id": "meeting_join",
+                    "execution_dependencies": [
+                        11,
+                        12
+                    ],
+                    "implementation_phase": "v1",
+                    "component_catalog": {
+                        "alerts": {
+                            "notification_banner": {
+                                "type": "Banner",
+                                "description": "Displays informational notifications, e.g., meeting not started or overrun warnings.",
+                                "required_elements": [
+                                    "message text"
+                                ],
+                                "variants": [
+                                    "warning",
+                                    "info"
+                                ],
+                                "props": {
+                                    "message": "string",
+                                    "type": "string"
+                                },
+                                "states": [
+                                    "visible",
+                                    "hidden"
+                                ],
+                                "interactions": [
+                                    "dismiss",
+                                    "auto-hide"
+                                ]
+                            }
+                        },
+                        "action_buttons": {
+                            "join_meeting_button": {
+                                "type": "Button",
+                                "description": "Button to join the meeting when within allowed time.",
+                                "required_elements": [
+                                    "label",
+                                    "icon"
+                                ],
+                                "variants": [
+                                    "default",
+                                    "disabled"
+                                ],
+                                "props": {
+                                    "onClick": "function",
+                                    "label": "string"
+                                },
+                                "states": [
+                                    "enabled",
+                                    "disabled",
+                                    "hover",
+                                    "active"
+                                ],
+                                "interactions": [
+                                    "click"
+                                ]
+                            }
+                        },
+                        "meeting_timer": {
+                            "time_indicator": {
+                                "type": "Timer",
+                                "description": "Displays the time until the meeting starts or time elapsed during an overrun.",
+                                "required_elements": [
+                                    "clock icon",
+                                    "time display"
+                                ],
+                                "variants": [
+                                    "countdown",
+                                    "stopwatch"
+                                ],
+                                "props": {
+                                    "time": "number"
+                                },
+                                "states": [
+                                    "running",
+                                    "paused"
+                                ],
+                                "interactions": []
+                            }
+                        }
+                    },
+                    "component_hierarchy": {
+                        "layout": {
+                            "type": "VerticalStack",
+                            "children": [
+                                {
+                                    "type": "Banner",
+                                    "execution_step_dependency": 11,
+                                    "children": []
+                                },
+                                {
+                                    "type": "Timer",
+                                    "execution_step_dependency": 11,
+                                    "children": []
+                                },
+                                {
+                                    "type": "Button",
+                                    "execution_step_dependency": 11,
+                                    "children": [
+                                        "join_meeting_button"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required_endpoints": [
+                        {
+                            "name": "Join Meeting",
+                            "path": "/api/meetings/join",
+                            "method": "POST",
+                            "description": "Validates meet join eligibility by checking if the meeting is within the allowed join time and initiates join session.",
+                            "request": {
+                                "body": {
+                                    "meetingId": "string",
+                                    "userId": "string"
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": {
+                                        "sessionToken": "string",
+                                        "joinTime": "timestamp"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Attempting to join too early",
+                                        "status": 403,
+                                        "response": {
+                                            "error": "MeetingNotStarted",
+                                            "message": "The meeting has not started yet."
+                                        }
+                                    },
+                                    {
+                                        "scenario": "Meeting overrun cutoff reached",
+                                        "status": 410,
+                                        "response": {
+                                            "error": "MeetingEnded",
+                                            "message": "The meeting is over and cannot be joined."
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Triggered when the join meeting button is clicked from the join screen to validate eligibility and initiate the session."
+                        }
+                    ],
+                    "screen_states": {
+                        "view_modes": [
+                            {
+                                "mode": "pre-join",
+                                "layout": "vertical",
+                                "active_components": [
+                                    "Banner",
+                                    "Timer",
+                                    "JoinMeetingButton"
+                                ]
+                            },
+                            {
+                                "mode": "error",
+                                "layout": "modal",
+                                "active_components": [
+                                    "Banner"
+                                ]
+                            }
+                        ],
+                        "conditional_elements": [
+                            {
+                                "element": "Banner",
+                                "display_condition": "if user attempts join outside allowed time window",
+                                "execution_step_dependency": 12
+                            }
+                        ]
+                    },
+                    "data_management": {
+                        "state_structure": {
+                            "local_state": {
+                                "currentMeetingId": "string",
+                                "joinStatus": "string"
+                            },
+                            "global_state": {
+                                "required_slices": [
+                                    "meetingSession"
+                                ],
+                                "mutations_needed": [
+                                    "setJoinStatus",
+                                    "storeSessionToken"
+                                ]
+                            }
+                        },
+                        "caching_strategy": {
+                            "cache_keys": [
+                                "meetingJoinCache"
+                            ],
+                            "invalidation_triggers": [
+                                "meeting join response"
+                            ],
+                            "execution_step_dependency": 11
+                        }
+                    },
+                    "screen_data": {
+                        "dummy_data": {
+                            "static_content": {
+                                "images": [
+                                    {
+                                        "purpose": "meeting placeholder",
+                                        "url": "https://images.pexels.com/photo-1556740763-baffa9b7ab40",
+                                        "aspect_ratio": "16:9",
+                                        "alt_text": "Meeting in progress"
+                                    }
+                                ],
+                                "text_content": {
+                                    "headlines": [
+                                        "Join your meeting"
+                                    ],
+                                    "descriptions": [
+                                        "Meeting will begin shortly. Please wait until the join window opens."
+                                    ]
+                                }
+                            },
+                            "dynamic_content": {
+                                "list_items": []
+                            }
+                        }
+                    }
+                },
+                "meeting_details": {
+                    "screen_id": "meeting_details",
+                    "execution_dependencies": [
+                        9,
+                        10
+                    ],
+                    "implementation_phase": "v1",
+                    "component_catalog": {
+                        "details": {
+                            "meeting_info_card": {
+                                "type": "Card",
+                                "description": "Shows detailed meeting information including title, date, agenda, participants, and attachments.",
+                                "required_elements": [
+                                    "title",
+                                    "date",
+                                    "agenda",
+                                    "participant list",
+                                    "attachment previews"
+                                ],
+                                "variants": [
+                                    "detailed",
+                                    "summary"
+                                ],
+                                "props": {
+                                    "meetingId": "string",
+                                    "title": "string",
+                                    "agenda": "string",
+                                    "participants": "array"
+                                },
+                                "states": [
+                                    "default",
+                                    "loading"
+                                ],
+                                "interactions": [
+                                    "click on attachment for preview",
+                                    "toggle participant details"
+                                ]
+                            }
+                        },
+                        "transcripts": {
+                            "transcript_container": {
+                                "type": "ScrollablePanel",
+                                "description": "Panel to display the meeting transcripts and action items generated post-meeting.",
+                                "required_elements": [
+                                    "transcript text",
+                                    "timestamp markers"
+                                ],
+                                "variants": [
+                                    "collapsed",
+                                    "expanded"
+                                ],
+                                "props": {
+                                    "transcript": "string",
+                                    "actionItems": "array"
+                                },
+                                "states": [
+                                    "default",
+                                    "expanded"
+                                ],
+                                "interactions": [
+                                    "scroll",
+                                    "click to expand"
+                                ]
+                            }
+                        },
+                        "invitation_status": {
+                            "invite_status_panel": {
+                                "type": "Panel",
+                                "description": "Displays the status of meeting invitations sent via the ToDo app, including acknowledgements.",
+                                "required_elements": [
+                                    "list of invitees",
+                                    "acknowledgement status"
+                                ],
+                                "variants": [
+                                    "default"
+                                ],
+                                "props": {
+                                    "invitees": "array"
+                                },
+                                "states": [
+                                    "default"
+                                ],
+                                "interactions": [
+                                    "click to view invitee details"
+                                ]
+                            }
+                        }
+                    },
+                    "component_hierarchy": {
+                        "layout": {
+                            "type": "VerticalStack",
+                            "children": [
+                                {
+                                    "type": "Card",
+                                    "execution_step_dependency": 9,
+                                    "children": [
+                                        "meeting_info_card"
+                                    ]
+                                },
+                                {
+                                    "type": "ScrollablePanel",
+                                    "execution_step_dependency": 9,
+                                    "children": [
+                                        "transcript_container"
+                                    ]
+                                },
+                                {
+                                    "type": "Panel",
+                                    "execution_step_dependency": 10,
+                                    "children": [
+                                        "invite_status_panel"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "required_endpoints": [
+                        {
+                            "name": "Get Meeting Details",
+                            "path": "/api/meetings/{meetingId}",
+                            "method": "GET",
+                            "description": "Fetches complete details of a meeting including agenda, participants, transcripts, and action items.",
+                            "request": {
+                                "query_params": {},
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": {
+                                        "meetingId": "string",
+                                        "title": "string",
+                                        "agenda": "string",
+                                        "date": "timestamp",
+                                        "participants": "array",
+                                        "transcript": "string",
+                                        "actionItems": "array",
+                                        "attachments": "array"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Meeting not found",
+                                        "status": 404,
+                                        "response": {
+                                            "error": "NotFound",
+                                            "message": "Meeting does not exist."
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Data maps to the MeetingInfoCard, TranscriptContainer, and InviteStatusPanel components to display detailed information."
+                        },
+                        {
+                            "name": "Send Invitation Task",
+                            "path": "/api/invitations/send",
+                            "method": "POST",
+                            "description": "Triggered to create tasks within the Utom ToDo app after meeting details are finalized.",
+                            "request": {
+                                "body": {
+                                    "meetingId": "string",
+                                    "invitees": "array"
+                                },
+                                "headers": {
+                                    "Authorization": "Bearer token required"
+                                }
+                            },
+                            "response": {
+                                "success": {
+                                    "status": 200,
+                                    "data": {
+                                        "taskId": "string"
+                                    }
+                                },
+                                "error_cases": [
+                                    {
+                                        "scenario": "Invalid meeting ID",
+                                        "status": 400,
+                                        "response": {
+                                            "error": "InvalidInput",
+                                            "message": "Provided meeting ID is not valid."
+                                        }
+                                    }
+                                ]
+                            },
+                            "usage_context": "Ensures that meeting invites are sent to participants and their status is tracked."
+                        }
+                    ],
+                    "screen_states": {
+                        "view_modes": [
+                            {
+                                "mode": "detailed_view",
+                                "layout": "vertical",
+                                "active_components": [
+                                    "MeetingInfoCard",
+                                    "TranscriptContainer",
+                                    "InviteStatusPanel"
+                                ]
+                            }
+                        ],
+                        "conditional_elements": [
+                            {
+                                "element": "TranscriptContainer",
+                                "display_condition": "if transcript data is available",
+                                "execution_step_dependency": 9
+                            }
+                        ]
+                    },
+                    "data_management": {
+                        "state_structure": {
+                            "local_state": {
+                                "meetingDetails": "Object"
+                            },
+                            "global_state": {
+                                "required_slices": [
+                                    "meetingDetails"
+                                ],
+                                "mutations_needed": [
+                                    "setMeetingDetails"
+                                ]
+                            }
+                        },
+                        "caching_strategy": {
+                            "cache_keys": [
+                                "meetingDetailsCache"
+                            ],
+                            "invalidation_triggers": [
+                                "meeting update",
+                                "invitation status change"
+                            ],
+                            "execution_step_dependency": 9
+                        }
+                    },
+                    "screen_data": {
+                        "dummy_data": {
+                            "static_content": {
+                                "images": [
+                                    {
+                                        "purpose": "meeting detail placeholder",
+                                        "url": "https://images.pexels.com/photo-1515378960530-7c0da6231fb1",
+                                        "aspect_ratio": "16:9",
+                                        "alt_text": "Meeting Detail Image"
+                                    }
+                                ],
+                                "text_content": {
+                                    "headlines": [
+                                        "Meeting Overview"
+                                    ],
+                                    "descriptions": [
+                                        "Details, agenda, and follow-ups from your recent meetings."
+                                    ]
+                                }
+                            },
+                            "dynamic_content": {
+                                "list_items": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

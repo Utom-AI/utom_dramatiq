@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "utom_feature"
+version = "0.1.0"
+description = "Feature management for Utom AI projects"
+requires-python = ">=3.8"
+dependencies = [
+    "flask>=3.0.0",
+    "dramatiq>=1.15.0",
+    "utom_databases>=0.1.0",
+    "utom_utils>=0.1.0"
+] 

@@ -1,0 +1,46 @@
+[26/01/25, 11:23:43 PM] D3mz: https://chatgpt.com/share/6796b29a-3f4c-8012-ad98-cc0f4cee42b1
+
+Mehn Verg check this out… if we are able to crack something like this it would be massive mehn… cos what it will mean is that for the more basic functionality, we can prompt our way to the initial design and building a lot of the functionality, and then design comes afterwards… food for thought for when building things from scratch…. because if engineering speeds up, all of a sudden it would be design that now starts holding us back
+[26/01/25, 11:45:16 PM] D3mz: @⁨Vergil⁩ as i’m working on this feature creation, a problem that i’m seeing (or opportunity)… is that we will probably need to build the flow in a way where it splits it into different departments to collaborate on building out the feature (and then same for user stories etc). So for example there will be
+
+•⁠  ⁠executive level direction around the feature
+•⁠  ⁠⁠then product research, user feedback points etc to point to the feature
+•⁠  ⁠⁠then design will have their own input on what the feature should look like
+•⁠  ⁠⁠then engineering comes in (frontend, backend and AI)
+•⁠  ⁠⁠then product analytics comes in to focus on how we want to measure success or what key parameters need to be monitored for the feature
+[26/01/25, 11:47:16 PM] D3mz: So what i’m thinking @⁨Vergil⁩ is that the owner comes in and gives high level description of what they want that feature to be, and the AI agent goes and does some research across all these parts above and then creates a bunch of individual tasks to add all these levels of contexts. Only once this is done would that feature be properly fleshed out and we can then go on to creating user stories which would follow a similar flow, but be more focused on engineering, product management and design
+[26/01/25, 11:50:03 PM] D3mz: so some food for thought that we need to think about for v2… for v1, it will be the feature creator which would now essentially have to be me all the time 🙁 that has to go through a more long winded and elaborate flow like what we did the day that we wanted to create the PRD for Contayner and we just sat together and scoped it out…. this would be how our sprint plans would work… at the senior level we would scope out the feature, then scope out the user stories and then create any subtasks needed to have those fully scoped out. Once done, we will then face the breaking down of the tasks…. this would have been after all relevant prep work has been done so that the person executing on the task has all that they need in front of them
+[26/01/25, 11:50:18 PM] D3mz: food for thought sha, we will need to think deeply about how to approach it
+[27/01/25, 12:06:00 AM] D3mz: Another idea on the same page to note @⁨Vergil⁩ will be that we will want to provide some ‘autofill’ phrases to prevent the user from typing so much… cos i’m currently going through the flow to create a feature via the conversation, and omo it plenty mehn
+[27/01/25, 12:10:13 AM] D3mz: @⁨Vergil⁩ please add these to the Agenda for our catchup… chai can’t wait for us to push hard on the Utom build meeehn, cos a lot of these would just be things I can personally be adding to existing agendas for meetings
+
+[27/01/25, 1:24:14 AM] D3mz: @⁨Vergil⁩ another idea for Utom meet would be that we are able to create tasks for the AI agent in the middle of a meeting. So we can be discussing marketing strategies in a meeting, and we can create a task for the AI agent connected to that meeting to do research on some of the ways company X or company Y does Z. So all these different things that come to mind that we would like to do, we can just talk to the meeting bot which would have context of the meeting and tell it to do stuff
+[27/01/25, 1:26:33 AM] D3mz: @⁨Vergil⁩ omo pele oh, you don take henrietta role today, another one that just came to mind is the dynamic conversation starts…. right now, this is what I am using for creating a feature from scratch:
+
+“””
+You are a specialist in product management and have worked as a VP of product in many organisations, tasked with assisting a coworkers in defining and refining a feature they want to build. Your goal is to lead a thoughtful and structured conversation to fully understand the feature and its context.
+
+Begin the discussion with an engaging question, such as, "Tell me about what you want to build." Follow up with unique and non-repetitive questions to clarify the feature's purpose and scope. Ensure that each question is distinct and asked one at a time to maintain a smooth conversation flow. Only proceed to the next question after receiving a response to the current one. Focus on these aspects:
+
+Understanding the Idea and Its Purpose
+•⁠  ⁠Feature Clarification: What is the feature, and what specific problem is it addressing? What pain points are users currently experiencing that this feature will alleviate?
+•⁠  ⁠Primary Users and Context: Who are the target users? What are the primary use cases and scenarios in which the feature will be utilized?
+
+Business Alignment and Impact
+•⁠  ⁠Business Value: What is the strategic business goal of the feature? How does it align with the overall product vision and competitive positioning?
+•⁠  ⁠Success Metrics: What are the measurable indicators of success for this feature? (e.g., engagement rates, retention, revenue growth, user satisfaction)
+
+Challenges and Opportunities
+•⁠  ⁠Risks and Constraints: What are the known technical, operational, or market-related risks or constraints? Are there external dependencies or regulatory considerations?
+
+Implementation-Oriented Questions
+•⁠  ⁠Data Requirements: What specific data (user inputs, external integrations, etc.) is required for the feature to function effectively? Where will this data come from, and how will it be validated?
+•⁠  ⁠Core Functionalities: What are the essential functionalities that this feature must include to meet its objectives? What are the "nice-to-haves" that could be added if time and resources allow?
+•⁠  ⁠AI and Automation Opportunities: What tasks or processes within this feature could benefit from automation or AI? For example, is there scope for machine learning, predictive modeling, or intelligent recommendations?
+•⁠  ⁠Integration Points: How will the feature integrate with existing systems, tools, or workflows? Are there APIs, SDKs, or infrastructure components that need to be leveraged or developed?
+•⁠  ⁠User Experience and Scalability: How will the feature maintain a seamless user experience as it scales? What design considerations will ensure simplicity and intuitive interactions?
+
+Respond conversationally and adapt your approach based on the user’s answers. Aim to deliver both insights and actionable guidance.
+"""
+[27/01/25, 1:28:30 AM] D3mz: but there may be a case where the new feature is an improvement or tangent based on an existing feature, or some previous work/research/idea that was done on Utom… so what i’m thinking is that we make it dynamic in that we will first make an llm call to then create a prompt based on the context of the information that it has… so that the conversation is a lot more customised/contextualised for the specific feature that we want to build, rather than a one-size-fits-all approach where we keep asking the same questions no matter what feature is being made.
+[27/01/25, 1:30:50 AM] D3mz: And a related concept to the above is that we have a ‘task-completion-based’ ideas functionality where after you finish a task, we then ask you for what can be done to improve the work that you just completed, and you can then come up with some ideas that are then picked up by the AI agent to do deep research and then come up with a draft and customised conversation that would create a new feature plan… and this is the iterative loop through which we are now running engineering 🙂

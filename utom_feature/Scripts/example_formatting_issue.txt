@@ -1,0 +1,112 @@
+{
+  "conversation_response": "Let me know how we can improve this",
+  "updated_jsx_code": `// State management for countdown
+  const [count, setCount] = useState(3);
+  const [isCountingDown, setIsCountingDown] = useState(true);
+  
+  // Effect for countdown animation
+  useEffect(() => {
+    let timer;
+    if (isCountingDown && count > 0) {
+      timer = setTimeout(() => {
+        setCount(count - 1);
+      }, 1000);
+    } else if (count === 0) {
+      // When countdown reaches 0, we would trigger recording
+      // This would be handled by a parent component or through a context
+      console.log('Recording started');
+    }
+    
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [count, isCountingDown]);
+  
+  // Function to cancel countdown and reset
+  const handleCancelCountdown = () => {
+    setIsCountingDown(false);
+    setCount(3);
+  };
+  
+  // Function to restart countdown
+  const handleRestartCountdown = () => {
+    setCount(3);
+    setIsCountingDown(true);
+  };
+  
+  // Calculate circle dash array for countdown progress
+  const calculateCircleDash = () => {
+    const baseValue = 283; // Circumference of a circle with r=45 (2 * PI * r)
+    return \`\${baseValue * (count / 3)} \${baseValue}\`;
+  };
+  
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-background-default">
+      <div className="w-full max-w-md p-8 rounded-lg bg-background-paper shadow-lg text-center space-y-6">
+        <h1 className="text-2xl font-bold text-primary-dark">Get Ready</h1>
+        <p className="text-gray-600 mb-4">Recording will start in:</p>
+        
+        {/* Countdown Timer Component */}
+        <div className="relative w-32 h-32 mx-auto">
+          {/* SVG circle for progress */}
+          <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+            <circle 
+              className="text-gray-200" 
+              strokeWidth="4"
+              stroke="currentColor" 
+              fill="transparent" 
+              r="45" 
+              cx="50" 
+              cy="50" 
+            />
+            <circle 
+              className="text-primary-main transition-all duration-1000 ease-linear" 
+              strokeWidth="4" 
+              strokeDasharray={calculateCircleDash()}
+              strokeLinecap="round" 
+              stroke="currentColor" 
+              fill="transparent" 
+              r="45" 
+              cx="50" 
+              cy="50" 
+            />
+          </svg>
+          
+          {/* Countdown Number */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-5xl font-bold text-primary-dark">{count}</span>
+          </div>
+        </div>
+        
+        {/* Action Button */}
+        <div className="mt-8">
+          {isCountingDown ? (
+            <button 
+              onClick={handleCancelCountdown}
+              className="px-6 py-2 bg-secondary-main text-white rounded-md hover:bg-secondary-hover active:bg-secondary-active transition-colors duration-200 shadow-md flex items-center justify-center space-x-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z" clipRule="evenodd" />
+              </svg>
+              <span>Cancel</span>
+            </button>
+          ) : (
+            <button 
+              onClick={handleRestartCountdown}
+              className="px-6 py-2 bg-primary-main text-white rounded-md hover:bg-primary-hover active:bg-primary-active transition-colors duration-200 shadow-md flex items-center justify-center space-x-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+              </svg>
+              <span>Start Recording</span>
+            </button>
+          )}
+        </div>
+        
+        <p className="text-sm text-gray-500 mt-6">
+          Your recording will automatically stop after 5 minutes
+        </p>
+      </div>
+    </div>
+  );`
+}
