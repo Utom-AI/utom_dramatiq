@@ -1,123 +1,139 @@
 import os
-from openai import OpenAI
+import json
 import logging
-from typing import Dict, Any
+import openai
+from dotenv import load_dotenv
 
-# Configure logging to match organization's style
+# Load environment variables
+load_dotenv()
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def extract_action_points(text: str) -> Dict[str, Any]:
-    """
-    Extract action points from transcribed text using OpenAI GPT
-    
-    Args:
-        text: Transcribed text to analyze
-        
-    Returns:
-        dict: Contains success status, action points and context points
-    """
+def extract_action_points(transcription: str) -> dict:
+    """Extract detailed action points and tasks from video transcription"""
     try:
-        # Get OpenAI API key
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise ValueError("OPENAI_API_KEY environment variable not set")
-            
-        # Initialize OpenAI client
-        client = OpenAI(api_key=api_key)
+        logger.info("Extracting action points from transcription...")
         
-        # Prepare prompt
         prompt = f"""
-        Please analyze the following transcription and extract:
-        1. Key action points (specific tasks that need to be done)
-        2. Context points (important background information)
-        
-        Format each action point as a clear, actionable task with:
-        - Who is responsible (if mentioned)
-        - What needs to be done
-        - When it needs to be done (if mentioned)
-        - Any relevant details
-        
+        Analyze the following video transcription and extract detailed, specific, and actionable tasks.
+        Break down each task into clear, executable steps with assigned responsibilities.
+
+        For each task identified from the transcription:
+        1. WHO: Identify the specific role/person who should be responsible
+        2. WHAT: Define the exact task that needs to be done
+        3. HOW: Break down the implementation steps
+        4. WHEN: Set a realistic timeline and priority
+        5. WHY: Explain the impact and benefits
+        6. Define clear success criteria
+
         Transcription:
-        {text}
+        {transcription}
         
-        Format the response as JSON with the following structure:
+        Format your response as a JSON with the following structure:
         {{
             "action_points": [
                 {{
-                    "task": "Complete task description",
-                    "assignee": "Person responsible (if mentioned)",
-                    "deadline": "Deadline (if mentioned)",
-                    "details": "Additional context"
-                }}
+                    "task": "Clear task description from the transcription",
+                    "owner": "Role/person who should handle this",
+                    "steps": ["Step 1 with clear action", "Step 2 with clear action", ...],
+                    "timeline": "Specific timeframe from now",
+                    "priority": "High/Medium/Low based on urgency",
+                    "impact": "Concrete benefit or outcome",
+                    "success_criteria": ["Measurable outcome 1", "Measurable outcome 2", ...],
+                    "dependencies": ["Required prerequisite 1", "Required prerequisite 2", ...],
+                    "resources_needed": ["Specific resource 1", "Specific resource 2", ...]
+                }},
+                ...
             ],
-            "context_points": ["point 1", "point 2", ...]
+            "key_points": [
+                {{
+                    "insight": "Key insight from transcription",
+                    "implications": ["Business implication 1", "Business implication 2", ...],
+                    "risks": ["Associated risk 1", "Associated risk 2", ...],
+                    "monitoring_metrics": ["Metric to track 1", "Metric to track 2", ...]
+                }},
+                ...
+            ],
+            "context": "Brief summary of the video content",
+            "summary": "Detailed summary of key messages",
+            "risk_assessment": {{
+                "market_risks": ["Market-related risk 1", "Market-related risk 2", ...],
+                "technical_risks": ["Technical risk 1", "Technical risk 2", ...],
+                "regulatory_risks": ["Regulatory risk 1", "Regulatory risk 2", ...],
+                "mitigation_strategies": ["Strategy to address risk 1", "Strategy to address risk 2", ...]
+            }}
         }}
+
+        IMPORTANT:
+        - Tasks MUST be SPECIFIC, MEASURABLE, ACHIEVABLE, RELEVANT, and TIME-BOUND (SMART)
+        - Focus on CONCRETE ACTIONS derived from the transcription
+        - Each step should be IMMEDIATELY ACTIONABLE
+        - Timelines should be REALISTIC and SPECIFIC
+        - Success criteria must be MEASURABLE
         """
         
-        # Call GPT-4
-        logger.info("Extracting action points using GPT-4")
+        client = openai.OpenAI()
         response = client.chat.completions.create(
             model="gpt-4",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant that extracts clear, actionable tasks and important context from meeting transcriptions."},
+                {
+                    "role": "system",
+                    "content": "You are an expert project manager and business analyst, skilled at converting information into actionable tasks and strategic insights."
+                },
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7
         )
         
-        # Parse response
-        result = response.choices[0].message.content
-        import json
-        points = json.loads(result)
-        
-        return {
-            "success": True,
-            "action_points": points["action_points"],
-            "context_points": points["context_points"]
-        }
+        result = json.loads(response.choices[0].message.content)
+        logger.info("Successfully extracted action points and tasks")
+        return {"success": True, "points": result}
         
     except Exception as e:
         logger.error(f"Error extracting action points: {str(e)}")
-        return {
-            "success": False,
-            "error": str(e)
-        }
+        return {"success": False, "error": str(e)}
 
-def format_action_points(result: Dict[str, Any]) -> str:
-    """
-    Format action points and context points into a readable string
-    
-    Args:
-        result (dict): Result from extract_action_points containing action_points and context_points
-        
-    Returns:
-        str: Formatted string
-    """
+def format_action_points(points: dict) -> dict:
+    """Format action points into a structured report"""
     try:
-        output = []
+        logger.info("Formatting action points into report...")
         
-        # Add action points
-        output.append("Action Points:")
-        for i, point in enumerate(result["action_points"], 1):
-            task = point["task"]
-            assignee = point.get("assignee", "Unassigned")
-            deadline = point.get("deadline", "No deadline specified")
-            details = point.get("details", "")
-            
-            output.append(f"{i}. Task: {task}")
-            output.append(f"   Assignee: {assignee}")
-            output.append(f"   Deadline: {deadline}")
-            if details:
-                output.append(f"   Details: {details}")
-            output.append("")
-            
-        # Add context points
-        output.append("\nContext Points:")
-        for i, point in enumerate(result["context_points"], 1):
-            output.append(f"{i}. {point}")
-            
-        return "\n".join(output)
+        # Extract tasks with priorities
+        tasks = []
+        for action in points["action_points"]:
+            task = {
+                "description": action["task"],
+                "owner": action["owner"],
+                "priority": action["priority"],
+                "timeline": action["timeline"],
+                "steps": action["steps"],
+                "success_criteria": action["success_criteria"]
+            }
+            tasks.append(task)
+        
+        # Sort tasks by priority
+        priority_order = {"High": 0, "Medium": 1, "Low": 2}
+        tasks.sort(key=lambda x: priority_order[x["priority"]])
+        
+        # Create summary
+        summary = {
+            "overview": points["summary"],
+            "context": points["context"],
+            "total_tasks": len(tasks),
+            "high_priority": len([t for t in tasks if t["priority"] == "High"]),
+            "key_risks": points["risk_assessment"]["market_risks"] + 
+                        points["risk_assessment"]["technical_risks"] + 
+                        points["risk_assessment"]["regulatory_risks"]
+        }
+        
+        return {
+            "success": True,
+            "tasks": tasks,
+            "summary": summary
+        }
         
     except Exception as e:
         logger.error(f"Error formatting action points: {str(e)}")
-        return f"Error formatting action points: {str(e)}"
+        return {"success": False, "error": str(e)}

@@ -1,65 +1,122 @@
-# utom_dramatiq
+# Video Processing Service with OpenAI Whisper Integration
 
-A video processing service that uses OpenAI's Whisper API for transcription and GPT-4 for action point extraction.
+This service processes videos to extract transcriptions and action points using OpenAI's Whisper API.
 
 ## Features
-
-- Video upload and processing
-- Audio extraction from videos
-- Transcription using OpenAI's Whisper API
-- Action point extraction using GPT-4
-- Task queue management with Dramatiq
-- S3 storage integration
+- Video download and processing
+- Audio extraction
+- Speech-to-text transcription using OpenAI Whisper
+- Action points extraction
 - MongoDB for task logging
-- Modern React frontend with TypeScript
+- RabbitMQ for task queuing
+
+## Prerequisites
+- Python 3.10 or higher
+- Docker and Docker Compose
+- AWS Account with S3 access
+- OpenAI API key
 
 ## Setup
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/video-processing-service.git
+cd video-processing-service
+```
+
+2. Create a virtual environment:
+```bash
+python -m venv venv310
+source venv310/bin/activate  # On Windows: venv310\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
-cd frontend
-npm install
 ```
 
-2. Set up environment variables in `.env`:
-```
-OPENAI_API_KEY=your_api_key
-AWS_ACCESS_KEY_ID=your_aws_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
-AWS_REGION=your_aws_region
-MONGODB_URI=your_mongodb_uri
-RABBITMQ_URL=your_rabbitmq_url
-```
-
-3. Initialize the database:
+4. Set up environment variables:
 ```bash
-python init_db.py
+cp .env.template .env
 ```
+Edit `.env` with your:
+- OpenAI API key
+- AWS credentials
+- MongoDB URI
+- RabbitMQ configuration
 
-4. Start the workers:
+5. Start MongoDB using Docker:
 ```bash
-dramatiq workers.py
-```
-
-5. Run the application:
-```bash
-python video_processor.py
-```
-
-6. Start the frontend development server:
-```bash
-cd frontend
-npm run dev
+docker-compose up -d
 ```
 
 ## Testing
 
-Run the tests with:
+1. Run the MongoDB integration test:
 ```bash
-python test_core_functionality.py
+python test_mongodb_integration.py
+```
+This will:
+- Create a test task in MongoDB
+- Process a test video
+- Store metadata in MongoDB
+- Display the stored metadata
+
+2. Run other tests:
+```bash
+pytest
 ```
 
-## License
+## Metadata Structure
 
-MIT License
+After processing a video, the following metadata is stored in MongoDB:
+
+```json
+{
+  "task_id": "unique_task_identifier",
+  "video_url": "url_of_processed_video",
+  "status": "completed",
+  "created_at": "task_creation_timestamp",
+  "completed_at": "task_completion_timestamp",
+  "results": {
+    "transcription": "full_video_transcription",
+    "action_points": [
+      "list of extracted action points"
+    ],
+    "context_points": [
+      "list of contextual information"
+    ],
+    "formatted_output": "formatted version of points"
+  }
+}
+```
+
+## Usage
+
+1. Submit a video for processing:
+```python
+from video_processor import process_video_task
+
+task_id = process_video_task("https://example.com/video.mp4")
+```
+
+2. Check task status and get results:
+```python
+from utom_utils import get_mongodb_client
+
+client = get_mongodb_client()
+db = client['utom_video_processing_db']
+task = db['tasks'].find_one({"task_id": task_id})
+print(json.dumps(task, indent=2))
+```
+
+## Environment Variables
+
+Required environment variables:
+- `OPENAI_API_KEY`: Your OpenAI API key
+- `AWS_ACCESS_KEY_ID`: AWS access key
+- `AWS_SECRET_ACCESS_KEY`: AWS secret key
+- `AWS_REGION`: AWS region
+- `AWS_BUCKET_NAME`: S3 bucket name
+- `MONGODB_URI`: MongoDB connection URI
+- `MONGODB_DB_NAME`: MongoDB database name

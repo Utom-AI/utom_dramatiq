@@ -8,6 +8,8 @@ from models import ProcessingJob
 import logging
 from dotenv import load_dotenv
 import os
+from mongodb_utils import get_video_metadata, get_all_video_metadata, save_metadata_locally
+from datetime import datetime
 
 # Load environment variables
 load_dotenv()
@@ -99,6 +101,49 @@ def get_results(job_id):
         
     except Exception as e:
         logger.error(f"Error getting results: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/metadata/<video_id>', methods=['GET'])
+def get_video_metadata_endpoint(video_id):
+    """Get metadata for a specific video"""
+    try:
+        metadata = get_video_metadata(video_id)
+        if not metadata:
+            return jsonify({"error": "Video metadata not found"}), 404
+            
+        # Save metadata locally
+        filepath = save_metadata_locally(metadata)
+        
+        return jsonify({
+            "metadata": metadata,
+            "local_file": filepath
+        })
+        
+    except Exception as e:
+        logger.error(f"Error retrieving video metadata: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/metadata', methods=['GET'])
+def get_all_metadata():
+    """Get metadata for all videos"""
+    try:
+        metadata_list = get_all_video_metadata()
+        
+        # Save all metadata locally
+        filepath = save_metadata_locally({
+            "videos": metadata_list,
+            "total_count": len(metadata_list),
+            "timestamp": datetime.utcnow().isoformat()
+        })
+        
+        return jsonify({
+            "metadata": metadata_list,
+            "total_count": len(metadata_list),
+            "local_file": filepath
+        })
+        
+    except Exception as e:
+        logger.error(f"Error retrieving all metadata: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':

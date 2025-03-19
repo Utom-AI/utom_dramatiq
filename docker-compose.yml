@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: utom-mongo-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: utom_admin
+      MONGO_INITDB_ROOT_PASSWORD: utom_secure_2024
+      MONGO_INITDB_DATABASE: utom_video_processing_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data: 

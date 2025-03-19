@@ -5,6 +5,8 @@ import tempfile
 import whisper
 import openai
 from dotenv import load_dotenv
+import dramatiq
+import boto3
 
 # Load environment variables
 load_dotenv()
@@ -119,6 +121,87 @@ def process_from_metadata_api(metadata_url: str = None):
     # Here you would add the integration with your existing metadata LLM
     # For now, this is a placeholder for that integration
     pass
+
+@dramatiq.actor(queue_name="video_processing")
+def process_video_task(video_id: str):
+    """Dramatiq actor for processing videos"""
+    try:
+        from mongodb_utils import get_mongodb_client
+        
+        print(f"Starting processing for video {video_id}")
+        
+        # Get video metadata from MongoDB
+        client = get_mongodb_client()
+        db = client['video_processor']
+        collection = db['video_metadata']
+        
+        video_metadata = collection.find_one({"video_id": video_id})
+        if not video_metadata:
+            raise Exception(f"No metadata found for video_id: {video_id}")
+            
+        # Download video from S3
+        print("Downloading video from S3...")
+        s3_client = boto3.client('s3',
+            aws_access_key_id=os.getenv('s3_access_key'),
+            aws_secret_access_key=os.getenv('s3_secret_key'),
+            region_name=os.getenv('AWS_REGION', 'us-east-1')
+        )
+        
+        temp_dir = tempfile.mkdtemp()
+        video_path = os.path.join(temp_dir, video_metadata['filename'])
+        s3_client.download_file(video_metadata['bucket'], video_metadata['key'], video_path)
+        
+        # Extract audio
+        print("Extracting audio...")
+        audio_path = extract_audio(video_path)
+        
+        # Transcribe audio
+        print("Transcribing audio...")
+        transcription = transcribe_audio(audio_path)
+        print("\nTranscription result:")
+        print(transcription)
+        
+        # Extract action points
+        print("\nGenerating action points...")
+        action_points = extract_action_points(transcription)
+        print("\nAction points:")
+        print(action_points)
+        
+        # Update metadata with results
+        print("\nUpdating metadata in MongoDB...")
+        collection.update_one(
+            {"video_id": video_id},
+            {
+                "$set": {
+                    "features.transcription": transcription,
+                    "features.action_points": action_points,
+                    "status": "processed"
+                }
+            }
+        )
+        
+        # Clean up
+        try:
+            os.remove(audio_path)
+            os.remove(video_path)
+            os.rmdir(temp_dir)
+        except:
+            pass
+            
+        print(f"\nProcessing completed successfully for video {video_id}")
+        return {"success": True, "video_id": video_id}
+        
+    except Exception as e:
+        print(f"Error processing video task: {str(e)}")
+        if 'collection' in locals():
+            collection.update_one(
+                {"video_id": video_id},
+                {"$set": {"status": "error", "error": str(e)}}
+            )
+        raise
+    finally:
+        if 'client' in locals():
+            client.close()
 
 if __name__ == "__main__":
     # Example usage - using a short TED-Ed video
